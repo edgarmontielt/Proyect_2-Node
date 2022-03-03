@@ -78,7 +78,7 @@ class User{
         }
     }
 
-    async getPostUsernameOrName(username, name){
+    async getUsersByUsernameOrName(username, name){
         try{
             const data =  await query(`SELECT *,DATE_FORMAT(birthday,'%d/%m/%Y') as birthdayForm FROM users WHERE username = ? OR name= ?`,[username, name])
             return data

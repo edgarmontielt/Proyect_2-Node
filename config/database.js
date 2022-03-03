@@ -22,3 +22,14 @@ function query(sql, data) {
     });
   });
 }
+
+async function insert(tableName,data){
+  try{
+      await query(`INSERT INTO ${tableName}(??) VALUES(?)`,[Object.keys(data),Object.values(data)])
+      return {data,success:true}
+  }catch(error){
+      return {error,success:false}
+  }
+}
+
+module.exports = {query,insert}

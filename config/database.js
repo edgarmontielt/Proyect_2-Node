@@ -28,7 +28,16 @@ async function insert(tableName,data){
       await query(`INSERT INTO ${tableName}(??) VALUES(?)`,[Object.keys(data),Object.values(data)])
       return {data,success:true}
   }catch(error){
-      return {error,success:false}
+      return {error,success:false} 
+  }
+}
+
+async function del(data) {
+  try {
+    await query("DELETE FROM users WHERE id = ?", [data]);
+    return data;
+  } catch (error) {
+    return data;
   }
 }
 

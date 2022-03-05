@@ -32,13 +32,4 @@ async function insert(tableName,data){
   }
 }
 
-async function del(data) {
-  try {
-    await query("DELETE FROM users WHERE id = ?", [data]);
-    return data;
-  } catch (error) {
-    return data;
-  }
-}
-
 module.exports = {query,insert}

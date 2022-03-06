@@ -6,7 +6,7 @@ const connection = mysql.createConnection({
   port: dbPort,
   user: dbUser,
   password: dbPass,
-  database: dbName,
+  database: dbName
 });
 
 function query(sql, data) {
@@ -25,8 +25,8 @@ function query(sql, data) {
 
 async function insert(tableName,data){
   try{
-      await query(`INSERT INTO ${tableName}(??) VALUES(?)`,[Object.keys(data),Object.values(data)])
-      return {data,success:true}
+      const result = await query(`INSERT INTO ${tableName}(??) VALUES(?)`,[Object.keys(data),Object.values(data)])
+      return result.insertId
   }catch(error){
       return {error,success:false} 
   }

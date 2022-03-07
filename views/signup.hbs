@@ -1,1 +1,67 @@
-<h1>SignUp</h1>
+{{!-- <section class="flex"> --}}
+    <div class="flex justify-center h-screen items-center">
+      <form
+        action=""
+        method="post"
+        class="flex flex-col w-1/3 bg-white rounded-md p-5"
+      >
+        <h2 class="p-3 text-xl font-medium">Registro</h2>
+        <div class="flex justify-center py-5">
+          <p>Regresar al
+            <a
+              href="/login"
+              class="text-east-side-700 font-semibold"
+            >Login</a></p>
+        </div>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          class="m-3 border-2 px-3 py-1 rounded-md"
+        />
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          class="m-3 border-2 px-3 py-1 rounded-md"
+        />
+        <input
+          type="date"
+          name="birthday"
+          placeholder="Birthday"
+          class="m-3 border-2 px-3 py-1 rounded-md"
+        />
+        <select name="gender" class="m-3 border-2 px-3 py-1 rounded-md">
+          <option value="M">Masculino</option>
+          <option value="F">Femenino</option>
+        </select>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          class="m-3 border-2 px-3 py-1 rounded-md"
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          class="m-3 border-2 px-3 py-1 rounded-md"
+        />
+        <input
+          type="password"
+          name="passwordRepeated"
+          placeholder="Password repeated"
+          class="m-3 border-2 px-3 py-1 rounded-md"
+        />
+
+        <div class="flex justify-end">
+          <button
+            class="m-3 bg-matisse text-white py-2 px-5 rounded-md"
+          >Registrar</button>
+        </div>
+      </form>
+    </div>
+  {{!-- <div class="flex w-1/2 justify-center items-center">
+    <img src="/img/img.svg" alt="" class="w-96 h-80" />
+  </div>
+</section> --}}

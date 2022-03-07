@@ -6,19 +6,20 @@ const path = require("path");
 
 const app = express();
 
+app.use(express.urlencoded({extended:true}))
+app.use(express.static(path.join(__dirname, "static")));
+
 app.engine(
   "hbs",
   engine({
     extname: "hbs",
-    partialsDir: ["views/components"],
-    layoutsDir: "views/layouts",
+    partialsDir:path.join(__dirname,"views","components"),
     helpers: {},
   })
 );
 app.set("view engine", "hbs");
 app.set("views", "views");
 
-app.use(express.static(path.join(__dirname, "static")));
 app.use(authRouter);
 
 app.listen(port, () => {

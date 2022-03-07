@@ -1,27 +1,26 @@
 const express = require("express");
 const { port } = require("./config/index");
-const {engine} = require("express-handlebars");
-
+const { engine } = require("express-handlebars");
+const authRouter = require("./routes/auth");
+const path = require("path");
 
 const app = express();
 
-app.engine('hbs',engine({
-  extname:"hbs",
-  partialsDir: ["views/components"],
-  layoutsDir: "views/layouts",
-  helpers:{
-  }
-}))
+app.use(express.urlencoded({extended:true}))
+app.use(express.static(path.join(__dirname, "static")));
 
-app.set("view engine",'hbs')
-app.set("views","views")
+app.engine(
+  "hbs",
+  engine({
+    extname: "hbs",
+    partialsDir:path.join(__dirname,"views","components"),
+    helpers: {},
+  })
+);
+app.set("view engine", "hbs");
+app.set("views", "views");
 
-
-
-app.get("/", (req, res) => {
-    return res.render("home")
-})
-
+app.use(authRouter);
 
 app.listen(port, () => {
   console.log("Running... http://localhost:" + port);

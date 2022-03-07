@@ -11,4 +11,8 @@ router.get('/login', authController.getLoginView);
 router.get('/signup', authController.getSignUpView);
 router.post('/signup', authController.signUp);
 
+router.get("/login", (req, res) =>{
+    return res.render("login")
+})
+
 module.exports = router;

@@ -505,14 +505,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 24rem;
 }
 
-.w-3\/4 {
-  width: 75%;
-}
-
-.w-1 {
-  width: 0.25rem;
-}
-
 .w-1\/3 {
   width: 33.333333%;
 }
@@ -523,10 +515,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .flex-col {
   flex-direction: column;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
 }
 
 .items-center {
@@ -563,6 +551,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(0 167 57 / var(--tw-bg-opacity));
 }
 
+.bg-matisse {
+  --tw-bg-opacity: 1;
+  background-color: rgb(32 82 158 / var(--tw-bg-opacity));
+}
+
 .bg-stone-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(41 37 36 / var(--tw-bg-opacity));
@@ -576,11 +569,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-east-side-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(186 171 218 / var(--tw-bg-opacity));
-}
-
-.bg-matisse {
-  --tw-bg-opacity: 1;
-  background-color: rgb(32 82 158 / var(--tw-bg-opacity));
 }
 
 .p-5 {

@@ -45,8 +45,7 @@ class AuthController {
         },
       });
     }
-
-    return res.redirect("/");
+    return res.redirect("/principal")
   }
 }
 

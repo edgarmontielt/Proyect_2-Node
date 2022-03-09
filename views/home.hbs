@@ -1,1 +1,18 @@
-<h1>Home</h1>
+<div>
+
+  {{#each users}}
+    <div class="flex m-20 gap-5">
+      <img
+        src="{{this.profile_pic}}"
+        alt="{{this.username}}"
+        class="w-16 h-16 rounded-full"
+      />
+      <div >
+        <p class=" text-lg font-semibold">{{this.username}}</p>
+        <p>{{this.name}}</p>
+        <p>{{this.email}}</p>
+      </div>
+    </div>
+  {{/each}}
+
+</div>

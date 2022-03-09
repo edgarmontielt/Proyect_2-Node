@@ -6,7 +6,7 @@ const connection = mysql.createConnection({
   port: dbPort,
   user: dbUser,
   password: dbPass,
-  database: dbName
+  database: dbName,
 });
 
 function query(sql, data) {
@@ -14,8 +14,15 @@ function query(sql, data) {
     connection.query(sql, data, (error, results) => {
       // Error first callback
       if (error) {
-        console.error(error.sqlMessage);
-        reject(error);
+        if (error.errno == 1062) {
+          const errorData = error.sqlMessage.split("'");
+          const value = errorData[1];
+          const field = errorData[3].split(".")[1].split("_")[0];
+          const message = `El ${field}: '${value}' ya esta en uso`;
+  
+          reject(message);
+        }
+        reject(error.sqlMessage);
       } else {
         resolve(results);
       }
@@ -23,13 +30,17 @@ function query(sql, data) {
   });
 }
 
-async function insert(tableName,data){
-  try{
-      const result = await query(`INSERT INTO ${tableName}(??) VALUES(?)`,[Object.keys(data),Object.values(data)])
-      return result.insertId
-  }catch(error){
-      return {error,success:false} 
+async function insert(tableName, data) {
+  try {
+    const result = await query(`INSERT INTO ${tableName}(??) VALUES(?)`, [
+      Object.keys(data),
+      Object.values(data),
+    ]);
+    console.log(data)
+    return {result: result.insertId, success:true};
+  } catch (error) {
+    return { error, success: false };
   }
 }
 
-module.exports = {query,insert}
+module.exports = { query, insert };

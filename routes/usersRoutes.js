@@ -1,12 +1,12 @@
-const express = require('express');
-const UserController = require('../controllers/userController')
+const express = require("express");
+const UserController = require("../controllers/userController");
 
-const router = express.Router()
+const router = express.Router();
 
-const userController = new UserController()
+const userController = new UserController();
 
-router.get("/",userController.getUsersView)
+router.get("/", userController.getUsersView);
 
-router.get("/search",userController.getSearchUserView)
+router.get("/search", userController.getSearchUserView);
 
-module.exports = router
+module.exports = router;

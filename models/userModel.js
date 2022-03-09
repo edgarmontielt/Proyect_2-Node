@@ -35,7 +35,7 @@ class User {
         gender: this.gender,
       });
       this.idUser = newUser.result;
-      console.log(newUser.success)
+      console.log(newUser.success);
       return newUser;
     } catch (error) {
       throw error;
@@ -84,7 +84,7 @@ class User {
   }
 
   // otras
-  static async getUserById(id) {
+  async getUserById(id) {
     try {
       const data = await query(
         `SELECT *,DATE_FORMAT(birthday,'%d/%m/%Y') as birthdayForm FROM users WHERE idUser = ?`,
@@ -95,12 +95,10 @@ class User {
       throw error;
     }
   }
-  async getUserByEmailAndPassword(email, password) {
+
+  static async getUserByEmail(email) {
     try {
-      const data = await query(
-        `SELECT * FROM users WHERE email = ? and password = ? `,
-        [email, password]
-      );
+      const data = await query(`SELECT * FROM users WHERE email = ?`, [email]);
       return data;
     } catch (error) {
       throw error;

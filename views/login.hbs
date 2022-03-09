@@ -1,38 +1,38 @@
-{{!-- <section class="flex justify-center"> --}}
-  {{! <div class="flex w-1/2 justify-center items-center">
-    <img src="/img/img.svg" alt="" class="w-96 h-80" />
-  </div> }}
-  <div class="flex justify-center h-screen items-center">
-    <form
-      action=""
-      method="post"
-      class="flex flex-col w-96 bg-white rounded-md p-5"
-    >
-      <h2 class="p-3 text-xl font-medium">Login</h2>
-      <div class="flex justify-center py-5">
-        <p>¿No tienes cuenta?,
-          <a
-            href="/signup"
-            class="text-east-side-700 font-semibold hover:opacity-80"
-          >Registrate</a></p>
-      </div>
-      <input
-        type="text"
-        name="email"
-        placeholder="Email"
-        class="m-3 border-2 px-3 py-1 rounded-md"
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        class="m-3 border-2 px-3 py-1 rounded-md"
-      />
-      <div class="flex justify-end">
-        <button
-          class="m-3 bg-green-haze text-white py-2 px-5 rounded-md"
-        >Ingresar</button>
-      </div>
-    </form>
-  </div>
-{{!-- </section> --}}
+<main class="flex justify-center mt-32">
+  <form
+    action="/login"
+    method="post"
+    class="flex flex-col w-96 bg-white rounded-md p-5"
+  >
+    <h2 class="p-3 text-xl font-medium">Login</h2>
+    <div class="flex justify-center py-5">
+      <p>¿No tienes cuenta?,
+        <a
+          href="/signup"
+          class="text-east-side-700 font-semibold hover:opacity-80"
+        >Registrate</a></p>
+    </div>
+    <div class="p-3 text-red-500 font-semibold flex justify-center">
+      {{#each validation.errors}}
+        <p>{{this}}</p>
+      {{/each}}
+    </div>
+    <input
+      type="text"
+      name="email"
+      placeholder="Email"
+      class="m-3 border-2 px-3 py-1 rounded-md"
+    />
+    <input
+      type="password"
+      name="password"
+      placeholder="Password"
+      class="m-3 border-2 px-3 py-1 rounded-md"
+    />
+    <div class="flex justify-end">
+      <button
+        class="m-3 bg-green-haze text-white py-2 px-5 rounded-md"
+      >Ingresar</button>
+    </div>
+  </form>
+</main>

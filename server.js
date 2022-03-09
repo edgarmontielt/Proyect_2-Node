@@ -1,8 +1,12 @@
 const express = require("express");
-const { port } = require("./config/index");
+const { port } = require("./config");
 const { engine } = require("express-handlebars");
-const authRouter = require("./routes/auth");
 const path = require("path");
+
+
+// Importando rutas
+const userRouter = require('./routes/usersRoutes');
+const authRouter = require('./routes/auth');
 
 const app = express();
 
@@ -19,8 +23,8 @@ app.engine(
 );
 app.set("view engine", "hbs");
 app.set("views", "views");
-
 app.use(authRouter);
+app.use(userRouter)
 
 app.listen(port, () => {
   console.log("Running... http://localhost:" + port);

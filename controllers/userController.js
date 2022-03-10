@@ -11,7 +11,6 @@ class UserController {
 
   async getSearchUserView(req, res) {
     const data = await User.getUsersByUsernameOrName(req.query.search);
-    //console.log(data);
     return res.render("home", {
       data,
       hasUsers: data.length > 0,

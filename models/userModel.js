@@ -104,10 +104,11 @@ class User {
       throw error;
     }
   }
-  async getUsersByUsername(username) {
+  static async getUsersByUsername(username) {
     try {
+      console.log(username)
       const data = await query(
-        `SELECT *,DATE_FORMAT(birthday,'%d/%m/%Y') as birthdayForm FROM users WHERE username = ?`,
+        `SELECT * FROM users WHERE username = ?`,
         [username]
       );
       return data;

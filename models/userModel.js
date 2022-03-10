@@ -35,7 +35,6 @@ class User {
         gender: this.gender,
       });
       this.idUser = newUser.result;
-      console.log(newUser.success);
       return newUser;
     } catch (error) {
       throw error;
@@ -106,7 +105,6 @@ class User {
   }
   static async getUsersByUsername(username) {
     try {
-      console.log(username)
       const data = await query(
         `SELECT * FROM users WHERE username = ?`,
         [username]

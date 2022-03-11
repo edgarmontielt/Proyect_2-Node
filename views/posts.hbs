@@ -1,0 +1,21 @@
+<div class="container flex flex-col text-center ">
+    <div class="row">
+        <form action="/posts" method="GET" class="my-4">
+            <button>Todos</button>
+        </form>
+
+        <form action="/posts/search" method="GET" class="mb-2">
+            <input type="search" name="search" placeholder="username">
+            <button>Buscar</button>
+        </form>
+        {{#if hasPosts}}
+            {{#each posts}}
+            <div class="col">
+                {{> post}}
+            </div>
+            {{/each}}
+        {{else}}
+            <p>No hay posts</p>
+        {{/if}}
+    </div>
+</div>

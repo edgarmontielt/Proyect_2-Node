@@ -13,10 +13,8 @@ class AuthController {
   async signUp(req, res) {
     const newUser = new User(req.body);
     const validation = newUser.validate();
-    console.log(validation);
     if (validation.success) {
       const resultBD = await newUser.save();
-      console.log(resultBD);
       if (resultBD.success) {
         return res.redirect("/");
       } else {
@@ -25,6 +23,11 @@ class AuthController {
       }
     }
     return res.render("signup", { validation, user: newUser });
+  }
+
+  logout(req, res){
+    req.session.destroy()
+    return res.redirect("/")
   }
 
   async login(req, res) {
@@ -45,8 +48,10 @@ class AuthController {
         },
       });
     }
-
-    return res.redirect("/");
+    req.session.loggedIn = true;
+    req.session.name = userData[0].name;
+    req.session.idUser = userData[0].idUser;
+    return res.redirect("/principal");
   }
 }
 

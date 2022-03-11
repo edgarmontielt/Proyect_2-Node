@@ -574,6 +574,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 0.5rem;
 }
 
+.mb-24 {
+  margin-bottom: 6rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -630,12 +638,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 3rem;
 }
 
+.w-2\/4 {
+  width: 50%;
+}
+
 .max-w-screen-xl {
   max-width: 1280px;
 }
 
 .max-w-lg {
   max-width: 32rem;
+}
+
+.max-w-2xl {
+  max-width: 42rem;
 }
 
 .grid-flow-col {
@@ -648,6 +664,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .flex-col {
   flex-direction: column;
+}
+
+.items-start {
+  align-items: flex-start;
 }
 
 .items-center {
@@ -668,6 +688,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .gap-5 {
   gap: 1.25rem;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .rounded-md {
@@ -799,6 +823,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 2.5rem;
 }
 
+.pl-2 {
+  padding-left: 0.5rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -834,6 +862,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .font-medium {
   font-weight: 500;
+}
+
+.font-bold {
+  font-weight: 700;
 }
 
 .leading-normal {
@@ -879,6 +911,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.hover\:border-2:hover {
+  border-width: 2px;
+}
+
+.hover\:text-east-side-700:hover {
+  --tw-text-opacity: 1;
+  color: rgb(101 72 165 / var(--tw-text-opacity));
 }
 
 .hover\:opacity-80:hover {

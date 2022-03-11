@@ -1,11 +1,14 @@
-<div class="bg-gray-100 p-3 flex items-center justify-center">
+<div class="bg-gray-100 p-3 flex items-center justify-center max-w-2xl mx-auto">
   <div class="bg-white border shadow-sm px-4 py-3 rounded-lg max-w-lg">
     <div class="flex items-center">
-      <img class="h-12 w-12 rounded-full" src={{profile_pic}}/>
+      <a href="/users/{{idUser}}" class="btn btn-primary btn-block">
+        <img class="h-12 w-12 rounded-full hover:border-2" src='{{this.profile_pic}}'/>
+      </a>
+
       <div class="ml-2">
-        <div class="text-sm ">
+        <div class="text-sm ">               
           <span class="font-semibold">{{name}}</span>
-          <span class="text-gray-500">@{{username}}</span>
+          <span class="text-gray-500 hover:text-east-side-700"><a href="/users/{{idUser}}" class="btn btn-primary btn-block">@{{username}}</a></span>
         </div>
         <div class="text-gray-500 text-xs ">{{title}}</div>
         <div class="text-gray-500 text-xs flex">
@@ -17,11 +20,16 @@
       </div>
     </div>
     <p class="text-gray-800 text-sm mt-2 leading-normal md:leading-relaxed">{{text}}</p>
-    <div class="text-gray-500 text-xs flex items-center mt-3">
-      <img class="mr-0.5" src="https://static-exp1.licdn.com/sc/h/d310t2g24pvdy4pt1jkedo4yb"/>
-      <img class="mr-0.5" src="https://static-exp1.licdn.com/sc/h/5thsbmikm6a8uov24ygwd914f"/>
-      <img class="mr-0.5" src="https://static-exp1.licdn.com/sc/h/7fx9nkd7mx8avdpqm5hqcbi97"/>
-      <span class="ml-1">47 • 26 comments</span>
+    <div class="text-gray-500 text-xs flex justify-between">
+      <div class="flex items-center mt-3">
+        <img class="mr-0.5" src="https://static-exp1.licdn.com/sc/h/d310t2g24pvdy4pt1jkedo4yb"/>
+        <span class="ml-1">47 • 26 
+          <a href="/comments/{{idPost}}" class="btn btn-primary btn-block hover:text-east-side-700">comments</a>
+        </span>
+      </div>
+      <button class="hover:text-east-side-700">Comentar</button>
+
+
     </div>
   </div>
 </div>

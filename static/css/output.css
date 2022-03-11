@@ -563,9 +563,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 20rem;
 }
 
+<<<<<<< HEAD
 .w-6 {
   width: 1.5rem;
 }
+=======
+>>>>>>> 602ea5de8bfbce3c6d77372dccf20521831aeb5b
 
 .max-w-screen-xl {
   max-width: 1280px;
@@ -583,10 +586,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+<<<<<<< HEAD
 .flex-row {
   flex-direction: row;
 }
 
+=======
+>>>>>>> 602ea5de8bfbce3c6d77372dccf20521831aeb5b
 .flex-col {
   flex-direction: column;
 }

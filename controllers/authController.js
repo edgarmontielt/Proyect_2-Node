@@ -48,9 +48,15 @@ class AuthController {
         },
       });
     }
-    req.session.loggedIn = true;
-    req.session.name = userData[0].name;
-    req.session.idUser = userData[0].idUser;
+
+    req.session.user = {
+      name: userData[0].name,
+      username: userData[0].username,
+      profilePic: userData[0].profile_pic,
+      birthday: userData[0].birthday,
+      loggedIn:true
+    }
+    
     return res.redirect("/principal");
   }
 }

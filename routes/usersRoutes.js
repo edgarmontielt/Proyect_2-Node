@@ -12,4 +12,5 @@ router.get("/", (req, res) => {
 router.get("/principal", userController.getSearchUserView)
 router.post("/principal", userController.getSearchUserView)
 
+
 module.exports = router;

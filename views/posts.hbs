@@ -1,0 +1,35 @@
+<main class="flex justify-center">
+    <div class="container flex flex-col text-center ">
+        <h1 class=" text-3xl mt-20 mb-6 font-semibold">Posts</h1>
+
+        <div class="flex gap-4 mx-auto">
+            <div class="col">
+                <form action="/posts" method="GET" class="my-4">
+                    <button class="bg-violet-800 px-2 py-[1px] rounded-md font-medium text-white">Todos</button>
+                </form>
+
+                <form action="/posts/search" method="GET" class="mb-2">
+                    <div class="flex flex-col items-start">
+                        <label class="text-bold">Buscar post de usuario</label>
+                        <input type="search" name="search" placeholder="username" class="pl-2 mb-2">
+                    </div>
+                    <button class="bg-violet-800 px-2 py-[1px] rounded-md font-medium text-white">Buscar</button>
+                </form>
+            </div>
+            <div class="col w-2/4">
+                {{#if hasPosts}}
+                    {{#each posts}}
+                        <div class="col">
+                            {{> post}}
+                        </div>
+                    {{/each}}
+                {{else}}
+                    <div class="col max-w-2xl mx-auto">
+                        <p>No hay posts</p>
+                    </div>
+
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</main>

@@ -5,9 +5,11 @@ const router = express.Router();
 
 const userController = new UserController();
 
-router.get("/", userController.getUsersView);
-router.get("/search", userController.getSearchUserView);
+router.get("/", (req, res) => {
+    return res.render("home")
+});
 
-router.get("/principal", userController.getUserPrincipalPage)
+router.get("/principal", userController.getSearchUserView)
+router.post("/principal", userController.getSearchUserView)
 
 module.exports = router;

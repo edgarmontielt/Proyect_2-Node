@@ -1,13 +1,19 @@
 {{#if session.user.loggedIn}}
   <nav class="bg-stone-900 p-4 text-white font-semibold flex justify-center">
     <div class="grid grid-flow-col grid-cols-3 w-full mx-3">
+
       <h1 class="pr-10 flex items-center"><a href="#">Inicio</a></h1>
-      <form action="" class="flex justify-center items-center">
+
+      <form
+        action="/principal"
+        class="flex justify-center items-center"
+        method="post"
+      >
         <label for="buscador" class="text-white mr-3">Buscar:</label>
         <input
           id="buscador"
           type="text"
-          name="buscador"
+          name="username"
           class="w-80 outline-none text-black px-3 rounded-md text-sm mr-3 py-1 font-medium"
           placeholder="Escribe el nombre del ususario..."
         />

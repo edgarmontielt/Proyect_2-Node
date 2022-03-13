@@ -8,6 +8,7 @@ const userRouter = require("./routes/usersRoutes");
 const authRouter = require("./routes/auth");
 const session = require("express-session");
 const addSessionToTemplate = require("./middleware/addSessionToTemplate");
+const { DateTime } = require("luxon");
 
 const app = express();
 
@@ -29,7 +30,12 @@ app.engine(
   engine({
     extname: "hbs",
     partialsDir: path.join(__dirname, "views", "components"),
-    helpers: {},
+    helpers: {
+      formatDate: function(date) {
+        const newDate = new DateTime(date);
+        return newDate.toFormat("yy-MM-dd")
+      }
+    },
   })
 );
 

@@ -467,7 +467,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
-
+.m-1{
   margin: 0.75rem;
 }
 
@@ -487,6 +487,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mx-3 {
   margin-left: 0.75rem;
   margin-right: 0.75rem;
+}
 
 .mx-auto {
   margin-left: auto;

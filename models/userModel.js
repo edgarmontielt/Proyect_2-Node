@@ -89,7 +89,7 @@ class User {
         `SELECT *,DATE_FORMAT(birthday,'%d/%m/%Y') as birthdayForm FROM users WHERE idUser = ?`,
         [id]
       );
-      return data; //acá llama a su contructor??
+      return data; 
     } catch (error) {
       throw error;
     }

@@ -6,6 +6,7 @@ const path = require("path");
 // Importando rutas
 const userRouter = require("./routes/usersRoutes");
 const authRouter = require("./routes/auth");
+const postRouter = require("./routes/postsRoutes");
 const session = require("express-session");
 const addSessionToTemplate = require("./middleware/addSessionToTemplate");
 const { DateTime } = require("luxon");
@@ -43,6 +44,7 @@ app.set("view engine", "hbs");
 app.set("views", "views");
 app.use(authRouter);
 app.use(userRouter);
+app.use(postRouter);
 
 app.listen(port, () => {
   console.log("Running... http://localhost:" + port);

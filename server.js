@@ -44,7 +44,7 @@ app.set("view engine", "hbs");
 app.set("views", "views");
 app.use(authRouter);
 app.use(userRouter);
-app.use(postRouter);
+// app.use(postRouter);
 
 app.listen(port, () => {
   console.log("Running... http://localhost:" + port);

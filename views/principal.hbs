@@ -1,6 +1,6 @@
 {{#if session.user.loggedIn}}
 {{#if hasUsers}}
-<section class="w-screen flex justify-center">
+<section class="w-screen flex justify-center absolute">
   <div class="w-1/4 bg-white rounded-b-md py-5 px-10 flex flex-row gap-4 items-center">
     <img src="{{user.profile_pic}}" alt="" class="w-8 h-8 rounded-full mt-[1px]" />
     <p class="font-medium">{{user.name}}</p>
@@ -32,3 +32,5 @@
   </section>
 </main>
 {{/if}}
+
+<script src="/js/modalNewPost.js"> </script>

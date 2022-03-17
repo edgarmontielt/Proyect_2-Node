@@ -28,8 +28,9 @@
       New post
     </div>
     <div  class="w-full flex flex-col">
+
       {{#each posts}}
-        {{> post}} 
+        {{> post session=../session}} 
       {{/each}}
     </div>
   </section>

@@ -12,7 +12,11 @@
               <span class="text-gray-500 hover:text-east-side-700"><a href="/users/{{idUser}}" class="btn btn-primary btn-block">@{{username}}</a></span>   
           </div>
          {{#if (isOwner username session.user.username)}}
-            <span><a href="#" class="w-5 h-5 font-bold">X</a></span>
+            <form action="">
+              <input type="hidden" value="{{idPost}}" name="idPost">
+              <button class="w-5 h-5 font-bold">X</button>
+            </form>
+          
          {{/if}}
         </div>
         {{!-- <div class="text-gray-500 text-xs ">{{title}}</div> --}}

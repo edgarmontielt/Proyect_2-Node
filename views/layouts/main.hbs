@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,33 @@
     <link rel="stylesheet" href="/css/output.css">
     <title>Social Network</title>
 </head>
+
 <body class=" bg-east-side-300">
-    {{> navbar}}
-    {{{body}}}
+    <section
+        class="modal-form left-0 top-0 bottom-0 w-full h-scree bg-opacity-0 absolute flex justify-center items-center -translate-y-full">
+        <div class="w-1/2 h-1/2 bg-slate-300 rounded-md shadow-lg shadow-slate-600 p-10 fixed">
+            <div class="flex justify-end">
+                <button class="button-close-modal absolute right-2 top-2"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
+                        <path
+                            d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z">
+                        </path>
+                    </svg></button>
+            </div>
+
+            <h2 class=" text-2xl font-semibold text-east-side-900">Crear post</h2>
+            <form action="/newpost/{{session.user.idUser}}" method="post">
+                <input type="text" name="title">
+                <input type="text" name="content">
+                <button>Listo</button>
+            </form>
+        </div>
+    </section>
+
+        {{> navbar}}
+        {{{body}}}
+
+    <script src="/js/modalNewPost.js"></script>
 </body>
+
 </html>

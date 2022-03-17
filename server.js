@@ -24,7 +24,7 @@ app.use(
   })
 );
 
-app.use(addSessionToTemplate)
+app.use(addSessionToTemplate);
 
 app.engine(
   "hbs",
@@ -32,10 +32,14 @@ app.engine(
     extname: "hbs",
     partialsDir: path.join(__dirname, "views", "components"),
     helpers: {
-      formatDate: function(date) {
-        const newDate = new DateTime(date);
-        return newDate.toFormat("yy-MM-dd")
-      }
+      formatDate: function (date) {
+        const newDate = DateTime.fromJSDate(date);
+        return newDate.toFormat("yyyy LLL dd");
+      },
+      formatHour: function (date) {
+        const newDate = DateTime.fromJSDate(date);
+        return newDate.toFormat("HH:mm");
+      },
     },
   })
 );
@@ -44,7 +48,7 @@ app.set("view engine", "hbs");
 app.set("views", "views");
 app.use(authRouter);
 app.use(userRouter);
-// app.use(postRouter);
+app.use(postRouter);
 
 app.listen(port, () => {
   console.log("Running... http://localhost:" + port);

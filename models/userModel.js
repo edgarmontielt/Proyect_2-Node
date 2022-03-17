@@ -8,6 +8,7 @@ class User {
     this.name = user.name;
     this.birthday = user.birthday;
     this.profile_pic = user.profile_pic;
+    this.occupation = user.occupation;
     this.email = user.email;
     this.password = user.password;
     this.passwordRepeat = user.passwordRepeat;
@@ -33,6 +34,7 @@ class User {
         email: this.email,
         password: this.password,
         gender: this.gender,
+        occupation: this.occupation
       });
       this.idUser = newUser.result;
       return newUser;

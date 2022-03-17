@@ -48,8 +48,6 @@ class AuthController {
         },
       });
     }
-    console.log(userData[0])
-
     req.session.user = {
       idUser:userData[0].idUser,
       name: userData[0].name,

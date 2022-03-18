@@ -6,7 +6,7 @@ const router = express.Router()
 
 const postController = new PostController()
 
-// router.get("/all-posts",postController.getAllPostsView)
+router.get("/all-posts",postController.getAllPostsView)
 // router.get("/principal", )
 // router.get("/posts/search",postController.getSearchPostsView)
 

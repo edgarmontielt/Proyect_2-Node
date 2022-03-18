@@ -11,6 +11,7 @@ const postController = new PostController()
 // router.get("/posts/search",postController.getSearchPostsView)
 
 router.post("/newpost/:idUser", postController.newPost)
+router.post("/post/delete", postController.deletePost)
 
 
 module.exports = router

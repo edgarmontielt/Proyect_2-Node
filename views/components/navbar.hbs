@@ -1,60 +1,65 @@
 {{#if session.user.loggedIn}}
-  <nav class="bg-stone-900 p-4 text-white font-semibold flex justify-center">
-    <div class="grid grid-flow-col grid-cols-3 w-full mx-3">
+<nav class="bg-stone-900 p-4 text-white font-semibold flex justify-center">
+  <div class="grid grid-flow-col grid-cols-3 w-full mx-3">
 
-      <h1 class="pr-10 flex items-center"><a href="#">Inicio</a></h1>
+    <h1 class="pr-10 flex items-center"><a href="#">Inicio</a></h1>
 
-      <form
-        action="/principal"
-        class="flex justify-center items-center"
-        method="post"
-      >
-        <label for="buscador" class="text-white mr-3">Buscar:</label>
-        <input
-          id="buscador"
-          type="text"
-          name="username"
-          class="w-80 outline-none text-black px-3 rounded-md text-sm mr-3 py-1 font-medium"
-          placeholder="Escribe el nombre del ususario..."
-        />
-        <button
-          class="bg-violet-800 px-2 py-[2px] rounded-md font-medium hover:opacity-60"
-        >Buscar</button>
-      </form>
-      <ul class="flex justify-end gap-7 items-center">
-        <li class="hover:opacity-60"><a href="/logout">Logout</a></li>
-        <li class="flex flex-row items-center gap-2 cursor-pointer">
-          {{! <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"
-          ><path
-              d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z"
-            ></path></svg> }}
-          <img
-            src="{{session.user.profilePic}}"
-            alt=""
-            class="w-6 h-6 rounded-full mt-[1px]"
-          />
-          {{session.user.name}}
+    <form action="/principal" class="flex justify-center items-center" method="post">
+      <label for="buscador" class="text-white mr-3">Buscar:</label>
+      <input id="buscador" type="text" name="username"
+        class="w-80 outline-none text-black px-3 rounded-md text-sm mr-3 py-1 font-medium"
+        placeholder="Escribe el nombre del ususario..." />
+      <button class="bg-violet-800 px-2 py-[2px] rounded-md font-medium hover:opacity-60">Buscar</button>
+    </form>
+    <ul class="flex justify-end gap-7 items-center">
+      <li class=" listener-logout flex flex-row items-center gap-2 cursor-pointer hover:scale-90 hover:opacity-50">
+        {{! <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
+          <path
+            d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z">
+          </path>
+        </svg> }}
+        <img src="{{session.user.profilePic}}" alt="" class="w-6 h-6 rounded-full mt-[1px] object-cover" />
+        {{session.user.name}}
+      </li>
+      <li class="cursor-pointer hover:opacity-60"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          style="fill: rgb(255, 255, 255);transform: ;msFilter:;">
+          <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path>
+        </svg></li>
+    </ul>
+
+    <section
+      class=" options-logout absolute bg-stone-900 right-16 top-16 w-72 rounded-md p-5 shadow-md -translate-y-80">
+      <ul class=" flex flex-col gap-6">
+        <li>
+          <div class="flex justify-end">
+            <button class="close-modal absolute right-2 top-2"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                height="24" style="fill: rgb(255, 255, 255);transform: ;msFilter:;">
+                <path
+                  d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z">
+                </path>
+              </svg></button>
+          </div>
         </li>
-        <li class="cursor-pointer hover:opacity-60"><svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            style="fill: rgb(255, 255, 255);transform: ;msFilter:;"
-          ><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg></li>
+        <li> Configuraciones</li>
+        <li class="">
+          <a href="/logout">
+            <div class="w-full hover:bg-stone-800 py-1 px-1 rounded-md cursor-pointer">
+              Cerrar sessión
+            </div>
+          </a>
+        </li>
       </ul>
-    </div>
-  </nav>
+    </section>
+  </div>
+</nav>
 {{else}}
-  <nav class="bg-stone-900 p-3 text-white font-semibold">
-    <div class="flex justify-between w-auto max-w-screen-xl mx-auto">
-      <h1 class="pr-10"><a href="/">Home</a></h1>
-      <ul class="flex">
-        <li><a href="/login">Login</a></li>
-      </ul>
-    </div>
-  </nav>
+<nav class="bg-stone-900 p-3 text-white font-semibold">
+  <div class="flex justify-between w-auto max-w-screen-xl mx-auto">
+    <h1 class="pr-10"><a href="/">Home</a></h1>
+    <ul class="flex">
+      <li><a href="/login">Login</a></li>
+    </ul>
+  </div>
+</nav>
 {{/if}}

@@ -510,6 +510,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: absolute;
 }
 
+.right-16 {
+  right: 4rem;
+}
+
+.top-16 {
+  top: 4rem;
+}
+
+.right-2 {
+  right: 0.5rem;
+}
+
+.top-2 {
+  top: 0.5rem;
+}
+
 .left-0 {
   left: 0px;
 }
@@ -711,6 +727,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 20rem;
 }
 
+.w-72 {
+  width: 18rem;
+}
+
 .w-12 {
   width: 3rem;
 }
@@ -725,6 +745,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .max-w-screen-xl {
   max-width: 1280px;
+}
+
+.-translate-y-80 {
+  --tw-translate-y: -20rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .-translate-y-full {
@@ -790,6 +815,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
 }
 
 .rounded-md {
@@ -871,17 +900,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 0;
 }
 
-.bg-gradient-to-br {
-  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
-}
-
-.from-white {
-  --tw-gradient-from: #fff;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(255 255 255 / 0));
-}
-
-.to-sky-700 {
-  --tw-gradient-to: #0369a1;
+.bg-cover {
+  background-size: cover;
 }
 
 .bg-cover {
@@ -895,6 +915,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.p-20 {
+  padding: 5rem;
 }
 
 .p-5 {
@@ -965,6 +989,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-\[2px\] {
   padding-top: 2px;
   padding-bottom: 2px;
+}
+
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 
 .px-4 {
@@ -1095,8 +1124,19 @@ Ensure the default browser behavior of the `hidden` attribute.
     }
 } */
 
+.hover\:scale-90:hover {
+  --tw-scale-x: .9;
+  --tw-scale-y: .9;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .hover\:border-2:hover {
   border-width: 2px;
+}
+
+.hover\:bg-stone-800:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(41 37 36 / var(--tw-bg-opacity));
 }
 
 .hover\:text-east-side-700:hover {
@@ -1118,6 +1158,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .hover\:opacity-60:hover {
   opacity: 0.6;
+}
+
+.hover\:opacity-50:hover {
+  opacity: 0.5;
 }
 
 .active\:scale-95:active {

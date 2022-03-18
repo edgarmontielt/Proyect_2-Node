@@ -38,7 +38,10 @@
       class="m-2 border-2 py-1 rounded-md outline-none px-2"
       value="{{user.birthday}}"
     />
-    <select name="gender" class="m-2 border-2 py-1 rounded-md outline-none px-2">
+    <select
+      name="gender"
+      class="m-2 border-2 py-1 rounded-md outline-none px-2"
+    >
       <option value="M">Masculino</option>
       <option value="F">Femenino</option>
     </select>
@@ -46,14 +49,21 @@
       type="text"
       name="profile_pic"
       placeholder="Profile picture"
-      class="m-2 border-2 py-1 rounded-md"
+      class="m-2 border-2 py-1 rounded-md px-2"
       value="{{user.profile_pic}}"
+    />
+    <input
+      type="text"
+      name="occupation"
+      placeholder="Ocupation"
+      class="m-2 border-2 py-1 rounded-md px-2"
+      value="{{user.email}}"
     />
     <input
       type="email"
       name="email"
       placeholder="Email"
-      class="m-2 border-2 py-1 rounded-md"
+      class="m-2 border-2 py-1 rounded-md px-2"
       value="{{user.email}}"
     />
     <input

@@ -1,8 +1,8 @@
 {{#if session.user.loggedIn}}
 {{#if hasUsers}}
-<section class="w-screen flex justify-center absolute">
+<section class="w-screen flex justify-center absolute" onclick="closeModal()">
   <div class="w-1/4 bg-white rounded-b-md py-5 px-10 flex flex-row gap-4 items-center shadow-2xl shadow-gray-600">
-    <img src="{{user.profile_pic}}" alt="" class="w-8 h-8 rounded-full mt-[1px]" />
+    <img src="{{user.profile_pic}}" alt="" class="w-8 h-8 rounded-full mt-[1px] object-cover" />
     <p class="font-medium">{{user.name}}</p>
     <div class=" bg-black-700 w-6">
       <a href="/addFriend">Añadir amigo</a>
@@ -35,3 +35,5 @@
   </section>
 </main>
 {{/if}}
+
+<script src="/js/modalNewPost.js"> </script>

@@ -510,16 +510,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: absolute;
 }
 
-.left-0 {
-  left: 0px;
+.right-16 {
+  right: 4rem;
 }
 
-.top-0 {
-  top: 0px;
-}
-
-.bottom-0 {
-  bottom: 0px;
+.top-16 {
+  top: 4rem;
 }
 
 .right-2 {
@@ -530,12 +526,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   top: 0.5rem;
 }
 
-.right-16 {
-  right: 4rem;
+.left-0 {
+  left: 0px;
 }
 
-.top-16 {
-  top: 4rem;
+.top-0 {
+  top: 0px;
+}
+
+.bottom-0 {
+  bottom: 0px;
 }
 
 .m-3 {
@@ -751,13 +751,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 1280px;
 }
 
-.-translate-y-full {
-  --tw-translate-y: -100%;
+.-translate-y-80 {
+  --tw-translate-y: -20rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.-translate-y-80 {
-  --tw-translate-y: -20rem;
+.-translate-y-full {
+  --tw-translate-y: -100%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1174,6 +1174,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     }
 } */
 
+.hover\:scale-90:hover {
+  --tw-scale-x: .9;
+  --tw-scale-y: .9;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .hover\:border-2:hover {
   border-width: 2px;
 }
@@ -1206,6 +1212,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .hover\:opacity-60:hover {
   opacity: 0.6;
+}
+
+.hover\:opacity-50:hover {
+  opacity: 0.5;
 }
 
 .active\:scale-95:active {

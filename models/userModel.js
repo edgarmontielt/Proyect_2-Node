@@ -1,4 +1,3 @@
-const res = require("express/lib/response");
 const { query, insert } = require("../config/database");
 
 class User {
@@ -21,6 +20,15 @@ class User {
       return users;
     } catch (error) {
       throw error;
+    }
+  }
+
+  static async readFilteredUsers(idUser) {
+    try {
+      const users = await query("SELECT * FROM users WHERE idUser != ?", [idUser])
+      return users;
+    } catch (error) {
+      console.log(error)
     }
   }
 

@@ -55,8 +55,8 @@ class AuthController {
       profilePic: userData[0].profile_pic,
       birthday: userData[0].birthday,
       occupation: userData[0].occupation,
-      loggedIn:true
     }
+    req.session.loggedIn = true
     
     return res.redirect("/principal");
   }

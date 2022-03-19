@@ -1,15 +1,4 @@
-{{#if session.user.loggedIn}}
-{{#if hasUsers}}
-<section class="w-screen flex justify-center absolute" onclick="closeModal()">
-  <div class="w-1/4 bg-white rounded-b-md py-5 px-10 flex flex-row gap-4 items-center shadow-2xl shadow-gray-600">
-    <img src="{{user.profile_pic}}" alt="" class="w-8 h-8 rounded-full mt-[1px] object-cover" />
-    <p class="font-medium">{{user.name}}</p>
-    <div class=" bg-black-700 w-6">
-      <a href="/addFriend">Añadir amigo</a>
-    </div>
-  </div>
-</section>
-{{/if}}
+{{#if session.loggedIn}}
 
 <main class="flex gap-5 m-16">
   <section class="w-1/3 h-96 bg-gray-100 rounded-md flex justify-center">
@@ -20,20 +9,40 @@
         <p class="text-xs text-gray-500">{{session.user.occupation}}</p>
         {{!-- <p> <strong>Fecha de nacimiento: </strong>{{formatDate session.user.birthday}}</p> --}}
       </div>
+      <div class=" grid grid-cols-3 gap-8 mt-10">
+        <div class=" flex flex-col justify-center items-center bg-white shadow-md p-2 rounded-md hover:bg-gray-200 font-medium text-gray-500 cursor-pointer ">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+            style="fill: rgb(128, 128, 128);transform: ;msFilter:;">
+            <path
+              d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z">
+            </path>
+        </svg>
+          <span>Ver perfil</span>
+        </div>
+        <div>
+          Ver perfil
+        </div>
+        <div>
+          Ver perfil
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="w-2/3 bg-gray-100 rounded-md flex flex-col justify-center items-center">
-    <div class=" button-new-post text-center my-5  py-2 bg-east-side-600 text-white font-semibold rounded-lg active:scale-95 cursor-pointer w-2/3 hover:opacity-90">
-      New post
+    <div
+      class=" button-new-post text-center my-5  py-2 bg-east-side-600 text-white font-semibold rounded-lg active:scale-95 cursor-pointer w-3/4 hover:opacity-90">
+      Crear publicación
     </div>
-    <div  class="w-full flex flex-col">
+    <div class="w-full flex flex-col">
       {{#each posts}}
-        {{> post}} 
+      {{> post}}
       {{/each}}
     </div>
   </section>
 </main>
+
 {{/if}}
 
-<script src="/js/modalNewPost.js"> </script>
+{{!--
+<script src="/js/modalNewPost.js"> </script> --}}

@@ -7,6 +7,15 @@ const closeModalLogout = document.querySelector(".close-modal");
 const classText = modalForm.className;
 const classItemNav = optionsLogout.className;
 
+itemNav.addEventListener("click", () => {
+  const arrayClass = classItemNav.split(" ");
+  arrayClass.pop();
+  optionsLogout.className = arrayClass.join(" ");
+});
+
+closeModalLogout.addEventListener("click", () => {
+  optionsLogout.className = classItemNav;
+});
 
 buttonNewPost.addEventListener("click", () => {
   const arrayClass = classText.split(" ");
@@ -16,14 +25,4 @@ buttonNewPost.addEventListener("click", () => {
 
 buttonCloseModal.addEventListener("click", () => {
   modalForm.className = classText;
-});
-
-itemNav.addEventListener("click", () => {
-  const arrayClass = classItemNav.split(" ");
-  arrayClass.pop();
-  optionsLogout.className = arrayClass.join(" ");
-});
-
-closeModalLogout.addEventListener("click", () => {
-  optionsLogout.className = classItemNav;
 });

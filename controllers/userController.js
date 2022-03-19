@@ -38,7 +38,7 @@ class UserController {
     return res.render("principal", {
       user: data[0],
       posts: posts,
-      hasUsers: data.length > 0 ? true : false,
+      hasUsers: data.length > 0,
     });
   }
 

@@ -12,7 +12,7 @@
       <button class="bg-violet-800 px-2 py-[2px] rounded-md font-medium hover:opacity-60">Buscar</button>
     </form>
     <ul class="flex justify-end gap-10 items-center">
-      <li>
+      <li class="flex flex-row items-center gap-2 cursor-pointer hover:scale-90 hover:opacity-50">
         <a href="/people">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
             style="fill: rgb(255, 255, 255);transform: ;msFilter:;">
@@ -22,8 +22,9 @@
             <path d="M4 8H2v12c0 1.103.897 2 2 2h12v-2H4V8z"></path>
           </svg>
         </a>
+        <span>Personas</span>
       </li>
-      <li class=" listener-logout flex flex-row items-center gap-2 cursor-pointer hover:scale-90 hover:opacity-50">
+      <li class="listener-logout flex flex-row items-center gap-2 cursor-pointer hover:scale-90 hover:opacity-50">
         <img src="{{session.user.profilePic}}" alt="" class="w-6 h-6 rounded-full mt-[1px] object-cover" />
         {{session.user.name}}
       </li>
@@ -35,7 +36,7 @@
 
     <section
       class=" options-logout absolute bg-stone-900 right-16 top-16 w-72 rounded-md p-5 shadow-md -translate-y-80">
-      <ul class=" flex flex-col gap-6">
+      <ul class=" flex flex-col gap-4">
         <li>
           <div class="flex justify-end">
             <button class="close-modal absolute right-2 top-2"><svg xmlns="http://www.w3.org/2000/svg" width="24"
@@ -46,7 +47,13 @@
               </svg></button>
           </div>
         </li>
-        <li> Configuraciones</li>
+        <li>           
+          <a href="/principal">
+            <div class="w-full hover:bg-stone-800 py-1 px-1 rounded-md cursor-pointer">
+              Ir al inicio
+            </div>
+          </a>
+        </li>
         <li class="">
           <a href="/logout">
             <div class="w-full hover:bg-stone-800 py-1 px-1 rounded-md cursor-pointer">
@@ -58,11 +65,13 @@
     </section>
   </div>
 </nav>
+
 {{else}}
 <nav class="bg-stone-900 p-3 text-white font-semibold">
   <div class="flex justify-between w-auto max-w-screen-xl mx-auto">
     <h1 class="pr-10"><a href="/">Home</a></h1>
-    <ul class="flex">
+    <ul class="flex gap-10">
+      <li><a href="/signup">Signup</a></li>
       <li><a href="/login">Login</a></li>
     </ul>
   </div>

@@ -12,7 +12,8 @@ router.get("/", (req, res) => {
 router.get("/principal", userController.getSearchUserView)
 router.post("/principal", userController.getSearchUserView)
 router.get("/people", userController.getFilteredUsers)
-router.post("/addFriend", )
+// TODO: addFrien feature
+// router.post("/addFriend", )
 
 
 module.exports = router;

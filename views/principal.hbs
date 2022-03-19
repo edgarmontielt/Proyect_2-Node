@@ -25,16 +25,18 @@
         {{!-- <p> <strong>Fecha de nacimiento: </strong>{{formatDate session.user.birthday}}</p> --}}
       </div>
       <div class=" grid grid-cols-3 gap-8 mt-10">
-        <div
-          class=" flex flex-col justify-center items-center bg-white shadow-md p-2 rounded-md hover:bg-gray-200 font-medium text-gray-500 cursor-pointer ">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-            style="fill: rgb(128, 128, 128);transform: ;msFilter:;">
-            <path
-              d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z">
-            </path>
-          </svg>
-          <span><a href="/users/{{session.user.idUser}}" class="btn btn-primary btn-block">Ver Perfil</a></span>
-        </div>
+        <a href="/users/{{session.user.idUser}}">
+          <div
+            class=" flex flex-col justify-center items-center bg-white shadow-md p-2 rounded-md hover:bg-gray-200 font-medium text-gray-500 cursor-pointer ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+              style="fill: rgb(128, 128, 128);transform: ;msFilter:;">
+              <path
+                d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z">
+              </path>
+            </svg>
+            <span>Ver Perfi</span>
+          </div>
+        </a>
         <div
           class=" flex flex-col justify-center items-center bg-white shadow-md p-2 rounded-md hover:bg-gray-200 font-medium text-gray-500 cursor-pointer">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"

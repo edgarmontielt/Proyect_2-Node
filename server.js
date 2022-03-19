@@ -34,7 +34,7 @@ app.engine(
     helpers: {
       formatDate: function (date) {
         const newDate = DateTime.fromJSDate(date);
-        return newDate.toFormat("yyyy LLL dd");
+        return newDate.toFormat("dd LLL yyyy");
       },
       formatHour: function (date) {
         const newDate = DateTime.fromJSDate(date);

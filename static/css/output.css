@@ -635,14 +635,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 0.75rem;
 }
 
-.mr-0\.5 {
-  margin-right: 0.125rem;
-}
-
-.mr-0 {
-  margin-right: 0px;
-}
-
 .inline-block {
   display: inline-block;
 }
@@ -1207,6 +1199,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:bg-stone-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(41 37 36 / var(--tw-bg-opacity));
+}
+
+.hover\:fill-violet-500:hover {
+  fill: #8b5cf6;
 }
 
 .hover\:text-east-side-700:hover {

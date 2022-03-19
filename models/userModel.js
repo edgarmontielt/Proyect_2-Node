@@ -93,10 +93,10 @@ class User {
   }
 
   // otras
-  async getUserById(id) {
+  static async getUserById(id) {
     try {
       const data = await query(
-        `SELECT *,DATE_FORMAT(birthday,'%d/%m/%Y') as birthdayForm FROM users WHERE idUser = ?`,
+        `SELECT * FROM users WHERE idUser = ?`,
         [id]
       );
       return data; 

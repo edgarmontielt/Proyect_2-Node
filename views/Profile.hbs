@@ -1,0 +1,22 @@
+<main class="flex gap-5 m-16">
+    <h1>Perfil de {{user.username}}</h1>
+    <div class="flex flex-col">
+        <p>{{user.idUser}}</p>
+        <p>{{user.name}}</p>   
+        <p>{{formatDate user.birthday}}</p>
+        <img src="{{user.profile_pic}}"/>
+        <p>{{user.gender}}</p>
+        <p>{{user.occupation}}</p>
+    </div>
+
+    <section>
+        <h2>Posts realizados</h2>
+        {{#if hasPosts}}
+            <div  class="w-full flex flex-col">
+                {{#each posts}}
+                    {{> post session=../session}} 
+                {{/each}}
+            </div>
+        {{/if}}
+    </section>
+</main>

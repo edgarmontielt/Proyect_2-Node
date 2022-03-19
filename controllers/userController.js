@@ -46,7 +46,7 @@ class UserController {
     const idUser = req.params.idUser;
     const data = await User.getUserById(idUser);
     const posts = await Post.getPostByUsername(data[0].username);
-    console.log(data)
+    
     return res.render("Profile", {
       user: data[0],
       posts: posts,

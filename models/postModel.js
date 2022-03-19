@@ -54,7 +54,13 @@ class Post {
       throw error;
     }
   }
-
+  static async delete(id) {
+    try {
+      return await query("DELETE FROM posts WHERE idPost = ?", [id]);
+    } catch (error) {
+      throw error;
+    }
+  }
   // otras
   async getPostById(id) {
     try {

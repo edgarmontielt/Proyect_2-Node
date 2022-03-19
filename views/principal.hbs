@@ -34,9 +34,9 @@
       class=" button-new-post text-center my-5  py-2 bg-east-side-600 text-white font-semibold rounded-lg active:scale-95 cursor-pointer w-3/4 hover:opacity-90">
       Crear publicación
     </div>
-    <div class="w-full flex flex-col">
+    <div  class="w-full flex flex-col">
       {{#each posts}}
-      {{> post}}
+        {{> post session=../session}} 
       {{/each}}
     </div>
   </section>

@@ -40,6 +40,9 @@ app.engine(
         const newDate = DateTime.fromJSDate(date);
         return newDate.toFormat("HH:mm");
       },
+      isOwner: function(username, owner){
+        return username === owner;
+      }
     },
   })
 );

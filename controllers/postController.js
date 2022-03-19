@@ -33,7 +33,16 @@ class PostController {
     const idUser = req.params.idUser
     console.log(idUser)
     const newPost = new Post(req.body, idUser);
+    console.log(newPost);
     const data = await newPost.addPost();
+    console.log(data);
+    return res.redirect("/principal")
+  }
+
+  async deletePost(req, res) {
+    const id = req.body.idPost;
+    const data = await Post.delete(id);
+    
     return res.redirect("/principal")
   }
 }

@@ -11,6 +11,6 @@ router.get("/", (req, res) => {
 
 router.get("/principal", userController.getSearchUserView)
 router.post("/principal", userController.getSearchUserView)
-
+router.get("/users/:idUser", userController.getProfileView)
 
 module.exports = router;

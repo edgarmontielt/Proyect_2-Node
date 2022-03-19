@@ -1,0 +1,14 @@
+<main class="flex gap-5 m-16">
+    <h1>Perfil de {{user.username}}</h1>
+
+    <section>
+        <h2>Posts realizados</h2>
+        {{#if hasPosts}}
+            <div  class="w-full flex flex-col">
+                {{#each posts}}
+                    {{> post session=../session}} 
+                {{/each}}
+            </div>
+        {{/if}}
+    </section>
+</main>

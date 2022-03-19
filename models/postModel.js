@@ -62,7 +62,7 @@ class Post {
     }
   }
   // otras
-  async getPostById(id) {
+  static async getPostById(id) {
     try {
       const data = await query(`SELECT * FROM posts WHERE idPost = ?`, [id]);
       return data;
@@ -71,7 +71,7 @@ class Post {
     }
   }
 
-  async getPostsByIdUser(id) {
+  static async getPostsByIdUser(id) {
     try {
       const data = await query(`SELECT * FROM posts WHERE idUser = ?`, [id]);
       return data;

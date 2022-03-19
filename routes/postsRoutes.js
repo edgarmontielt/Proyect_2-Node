@@ -12,6 +12,7 @@ router.get("/all-posts",postController.getAllPostsView)
 
 router.post("/newpost/:idUser", postController.newPost)
 router.post("/post/delete", postController.deletePost)
-
+router.post("/post/unlike", postController.unlikePost)
+router.post("/post/like", postController.addLikePost)
 
 module.exports = router

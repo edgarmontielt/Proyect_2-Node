@@ -1,5 +1,6 @@
 const Post = require("../models/postModel");
 const PostUser = require("../models/postUserModel");
+const Like = require("../models/likeModel")
 
 class PostController {
   async getAllPostsView(req, res) {
@@ -42,6 +43,22 @@ class PostController {
   async deletePost(req, res) {
     const id = req.body.idPost;
     const data = await Post.delete(id);
+    
+    return res.redirect("/principal")
+  }
+
+  async unlikePost(req, res) {
+    const idPost = req.body.idPost;
+    const idUser = req. body.idUser;
+    const data = await Like.deleteLike(idPost,idUser);
+    
+    return res.redirect("/principal")
+  }
+
+  async addLikePost(req, res) {
+    const idPost = req.body.idPost;
+    const idUser = req. body.idUser;
+    const data = await Like.addLike(idPost,idUser);
     
     return res.redirect("/principal")
   }

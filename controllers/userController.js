@@ -15,6 +15,7 @@ class UserController {
     let data;
     if (req.session.loggedIn) {
       const result = await User.readFilteredUsers(req.session.user.idUser);
+      console.log(result)
       data = {
         users: result,
         hasUsers: result.length > 0,
@@ -34,7 +35,7 @@ class UserController {
 
   async getSearchUserView(req, res) {
     const data = await User.getUsersByUsername(req.body.username);
-    const posts = await Post.getPostWithUsername();
+    // const posts = await Post.getPostWithUsername();
 
     if (req.session.loggedIn){
       //const posts = await Post.getPostWithUsername();

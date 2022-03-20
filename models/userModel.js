@@ -26,6 +26,7 @@ class User {
   static async readFilteredUsers(idUser) {
     try {
       const users = await query("SELECT * FROM users WHERE idUser != ?", [idUser])
+      console.log(users)
       return users;
     } catch (error) {
       console.log(error)

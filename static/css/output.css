@@ -962,16 +962,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   fill: currentColor;
 }
 
-.fill-gray-400 {
-  fill: #9ca3af;
+.fill-violet-500 {
+  fill: #8b5cf6;
 }
 
 .fill-white {
   fill: #fff;
 }
 
-.fill-violet-500 {
-  fill: #8b5cf6;
+.fill-gray-400 {
+  fill: #9ca3af;
 }
 
 .object-cover {
@@ -1211,10 +1211,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:bg-stone-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(41 37 36 / var(--tw-bg-opacity));
-}
-
-.hover\:fill-violet-500:hover {
-  fill: #8b5cf6;
 }
 
 .hover\:text-east-side-700:hover {

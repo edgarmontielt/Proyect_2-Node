@@ -15,7 +15,7 @@ class PostUserModel {
   }
 
   // Todas las columnas de posts pero de users:name,username,profile_pic
-  static async getPostWithUsername() {
+  static async getPost() {
     try {
       return await query(
         "SELECT posts.*,users.username,users.name,users.profile_pic FROM posts JOIN users ON posts.idUser=users.idUser"

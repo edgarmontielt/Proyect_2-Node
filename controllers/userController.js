@@ -34,6 +34,7 @@ class UserController {
 
   async getSearchUserView(req, res) {
     const data = await User.getUsersByUsername(req.body.username);
+    const posts = await Post.getPostWithUsername();
 
     if (req.session.loggedIn){
       //const posts = await Post.getPostWithUsername();
@@ -47,7 +48,6 @@ class UserController {
     } else {
       return res.render("home")
     }
-   
   }
 
   async getProfileView(req, res) {

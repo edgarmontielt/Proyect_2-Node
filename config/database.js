@@ -36,7 +36,6 @@ async function insert(tableName, data) {
       Object.keys(data),
       Object.values(data),
     ]);
-    console.log(data)
     return {result: result.insertId, success:true};
   } catch (error) {
     return { error, success: false };

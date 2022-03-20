@@ -35,11 +35,19 @@ class UserController {
   async getSearchUserView(req, res) {
     const data = await User.getUsersByUsername(req.body.username);
     const posts = await Post.getPostWithUsername();
-    return res.render("principal", {
-      user: data[0],
-      posts: posts,
-      hasUsers: data.length > 0,
-    });
+
+    if (req.session.loggedIn){
+      //const posts = await Post.getPostWithUsername();
+      const posts= await Post.getPostLikes(req.session.user.idUser);
+      return res.render("principal", {
+        user: data[0],
+        posts: posts,
+        hasUsers: data.length > 0 ? true : false,
+
+      });
+    } else {
+      return res.render("home")
+    }
   }
 
   async getProfileView(req, res) {

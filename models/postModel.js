@@ -28,7 +28,6 @@ class Post {
         date: this.date,
       });
       this.idPost = newPost.result;
-    //   console.log(newPost)
       return newPost;
     } catch (error) {
       console.log(error);
@@ -61,7 +60,7 @@ class Post {
       throw error;
     }
   }
-  // otras
+  // Others
   static async getPostById(id) {
     try {
       const data = await query(`SELECT * FROM posts WHERE idPost = ?`, [id]);

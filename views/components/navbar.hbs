@@ -5,7 +5,7 @@
     <h1 class="pr-10 flex items-center"><a href="/principal">Inicio</a></h1>
 
     <form action="/principal" class="flex justify-center items-center" method="post">
-      <label for="buscador" class="text-white mr-3">Buscar:</label>
+      {{!-- <label for="buscador" class="text-white mr-3">Buscar:</label> --}}
       <input id="buscador" type="text" name="username"
         class="w-80 outline-none text-black px-3 rounded-md text-sm mr-3 py-1 font-medium"
         placeholder="Escribe el nombre del ususario..." />
@@ -51,6 +51,13 @@
           <a href="/principal">
             <div class="w-full hover:bg-stone-800 py-1 px-1 rounded-md cursor-pointer">
               Ir al inicio
+            </div>
+          </a>
+        </li>
+         <li>           
+          <a href="/friends">
+            <div class="w-full hover:bg-stone-800 py-1 px-1 rounded-md cursor-pointer">
+              Ver amigos
             </div>
           </a>
         </li>

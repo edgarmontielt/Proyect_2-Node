@@ -1,0 +1,38 @@
+<main class=" max-w-3xl mx-auto mt-10">
+    <section class=" bg-gray-100 p-10 rounded-md">
+        <h3 class=" text-3xl font-bold mb-6">Amigos</h3>
+        {{#if hasFriends}}
+        {{#each friends}}
+        <div class=" flex flex-row gap-5 mb-10 bg-white p-5 rounded-md shadow-lg">
+            <img src="{{this.profile_pic}}" alt="{{this.username}}" class="w-16 h-16 rounded-full object-cover">
+            <div>
+                <h3 class=" text-lg font-medium ">{{this.name}}</h3>
+                <p class=" text-sm text-gray-400">@{{this.username}}</p>
+            </div>
+
+            {{#if ../session.loggedIn }}
+            <div class="ml-auto flex items-center">
+                <a href="/users/{{this.idUser}}">
+                    <div class=" bg-sky-600 p-2 rounded-md font-medium text-white hover:opacity-90 mr-5">
+                        Ver perfil
+                    </div>
+                </a>
+                <a href="/deleteFriend/{{this.idUser}}">
+                    <div class=" bg-red-500 p-2 rounded-md font-medium text-white hover:opacity-90">
+                        Eliminar
+                    </div>
+                </a>
+            </div>
+            {{/if}}
+        </div>
+        {{/each}}
+        {{else}}
+        <p class=" text-gray-500 text-lg my-10">No tienes amigos</p>
+        <div class="text-white hover:opacity-50 bg-east-side-700 p-2 flex justify-center mt-5 rounded-lg">
+            <a href="/people">
+                <span>Buscar en la comunidad</span>
+            </a>
+        </div>
+        {{/if}}
+    </section>
+</main>

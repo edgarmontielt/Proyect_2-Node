@@ -13,8 +13,12 @@ router.get("/principal", userController.getSearchUserView)
 router.post("/principal", userController.getSearchUserView)
 router.get("/users/:idUser", userController.getProfileView)
 router.get("/people", userController.getFilteredUsers)
-// TODO: addFrien feature
-// router.post("/addFriend", )
+router.get("/addFriend/:idReceived", userController.addFriend)
+router.get("/friends", userController.getFriends)
+router.post("/acceptFriend/:idIssue", userController.acceptFriend)
+router.get("/deleteFriendReq/:idFriendReq", userController.deleteFriendReq)
+router.get("/deleteFriend/:idFriend", userController.deleteFriend)
+// router.get("/friendrequest", userController.getFriendsRequest)
 
 
 module.exports = router;

@@ -3,22 +3,18 @@ const Post = require("../models/postUserModel");
 
 
 class UserController {
-  // async getUsersView(req, res) {
-  //   const data = await User.readAll();
-  //   return res.render("home", {
-  //     users: data,
-  //     hasUsers: data.length > 0,
-  //   });
-  // }
 
   async getFilteredUsers(req, res) {
     let data;
     if (req.session.loggedIn) {
       const result = await User.readFilteredUsers(req.session.user.idUser);
-      console.log(result)
       data = {
-        users: result,
-        hasUsers: result.length > 0,
+        hasUsers: result.users.length > 0,
+        users: result.users,
+        hasReqSend: result.requestSend.length > 0,
+        requestSend: result.requestSend,
+        hasFriendReq: result.friendsReq.length > 0,
+        friendsReq: result.friendsReq,
         loggedIn: req.session.user.loggedIn
       };
       return res.render("people", data);
@@ -33,9 +29,13 @@ class UserController {
     }
   }
 
+  async acceptFriend(req, res){
+    const result = await User.acceptFriend(req.body.idReceived, req.params.idIssue)
+    return res.redirect("/people")
+  }
+
   async getSearchUserView(req, res) {
     const data = await User.getUsersByUsername(req.body.username);
-    // const posts = await Post.getPostWithUsername();
 
     if (req.session.loggedIn){
       //const posts = await Post.getPostWithUsername();
@@ -64,9 +64,37 @@ class UserController {
     })
   }
   
-  async addFriend() {
-    // const result = await User.
+  async addFriend(req, res) {
+    const idIssue = req.session.user.idUser
+    const idReceived = req.params.idReceived
+    const result = await User.addFriend(idIssue, idReceived) 
+
+    return res.redirect("/people")
   }
+
+  async getFriends(req, res){
+    const friends = await User.getFriends(req.session.user.idUser)
+    return res.render("friends", {
+      hasFriends: friends.length > 0,
+      friends: friends
+    })
+  }
+
+  async deleteFriendReq(req, res) {
+    if(req.session.loggedIn){
+      const result = await User.deleteFriendReq(req.params.idFriendReq)
+      return res.redirect("/people")
+    }
+    return res.redirect("/people")
+  }
+
+  async deleteFriend(req, res){
+    if (req.session.loggedIn) {
+      const result = await User.deleteFriend(req.session.user.idUser, req.params.idFriend)
+      return res.redirect("/friends")
+    }
+  }
+
 }
 
 module.exports = UserController;

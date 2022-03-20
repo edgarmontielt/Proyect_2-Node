@@ -42,4 +42,10 @@ async function insert(tableName, data) {
   }
 }
 
+// async function deleteInf(tableName, data){
+//   try{
+//     const result = await query(`DELETE FROM ${tableName} WHERE idIssueUser = ? AND idReceivedUser = ?;`)
+//   } catch (error){}
+// }
+
 module.exports = { query, insert };

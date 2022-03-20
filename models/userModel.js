@@ -25,11 +25,41 @@ class User {
 
   static async readFilteredUsers(idUser) {
     try {
-      const users = await query("SELECT * FROM users WHERE idUser != ?", [idUser])
-      console.log(users)
-      return users;
+      const users = await query(
+        "SELECT * FROM users WHERE idUser != ? AND idUser NOT IN (SELECT users.idUser FROM users JOIN friendsrequests ON users.idUser = friendsrequests.idReceivedUser WHERE friendsrequests.idIssueUser = ?);",
+        [idUser, idUser]
+      );
+      const requestSend = await query(
+        "SELECT * FROM users JOIN friendsrequests ON users.idUser=friendsrequests.idReceivedUser AND friendsrequests.status = 0  WHERE friendsrequests.idIssueUser=?",
+        idUser
+      );
+      // const friends = await query ("SELECT * FROM users JOIN friendsrequests ON users.idUser=friendsrequests.idReceivedUser AND friendsrequests.status = 1 WHERE friendsrequests.idIssueUser=?", idUser)
+      const friendsReq = await this.getFriendsRequest(idUser);
+      return { users, requestSend, friendsReq };
     } catch (error) {
-      console.log(error)
+      console.log(error);
+    }
+  }
+
+  static async getFriendsRequest(idReceived) {
+    try {
+      const friendsrequest = await query(
+        "SELECT * FROM users JOIN friendsrequests ON users.idUser=friendsrequests.idIssueUser AND status=0 WHERE friendsrequests.idReceivedUser=?",
+        idReceived
+      );
+      return friendsrequest;
+    } catch (error) {}
+  }
+
+  static async getFriends(idUser) {
+    try {
+      const friends = await query(
+        "SELECT * FROM users JOIN friendsrequests ON users.idUser=friendsrequests.idReceivedUser AND friendsrequests.status = 1 WHERE friendsrequests.idIssueUser=?",
+        idUser
+      );
+      return friends;
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -43,7 +73,7 @@ class User {
         email: this.email,
         password: this.password,
         gender: this.gender,
-        occupation: this.occupation
+        occupation: this.occupation,
       });
       this.idUser = newUser.result;
       return newUser;
@@ -93,14 +123,52 @@ class User {
     return result;
   }
 
-  // otras
+  static async addFriend(idIssue, idReceived) {
+    try {
+      const result = await insert("friendsrequests", {
+        idIssueUser: idIssue,
+        idReceivedUser: idReceived,
+        status: false,
+      });
+      return result;
+    } catch (error) {}
+  }
+
+  static acceptFriend(idReceived, idIssue) {
+    const result = query("UPDATE friendsrequests SET status = true WHERE idIssueUser = ? AND idReceivedUser = ?", [idIssue, idReceived])
+    const accept = insert("friendsrequests", {
+      idIssueUser: idReceived,
+      idReceivedUser: idIssue,
+      status: true,
+    });
+    return result
+  }
+
+  static async deleteFriendReq(idfriendReq) {
+    try {
+      const result = await query("DELETE FROM friendsrequests WHERE idfriendReq = ? AND status = 0", idfriendReq);
+      // await query(`DELETE FROM friendsrequest WHERE idIssueUser = ? AND idReceivedUser = ?`,[idFriend,idUser]);
+      return result;
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  static async deleteFriend(idUser, idFriend) {
+    try {
+      const result = await query(`DELETE FROM friendsrequests WHERE idIssueUser = ? AND idReceivedUser = ? AND status = 1`,[idUser, idFriend]);
+      await query(`DELETE FROM friendsrequests WHERE idIssueUser = ? AND idReceivedUser = ? AND status = 1`,[idFriend,idUser]);
+      return result;
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  // Others
   static async getUserById(id) {
     try {
-      const data = await query(
-        `SELECT * FROM users WHERE idUser = ?`,
-        [id]
-      );
-      return data; 
+      const data = await query(`SELECT * FROM users WHERE idUser = ?`, [id]);
+      return data;
     } catch (error) {
       throw error;
     }
@@ -117,10 +185,9 @@ class User {
 
   static async getUsersByUsername(username) {
     try {
-      const data = await query(
-        `SELECT * FROM users WHERE username = ?`,
-        [username]
-      );
+      const data = await query(`SELECT * FROM users WHERE username = ?`, [
+        username,
+      ]);
       return data;
     } catch (error) {
       throw error;
@@ -129,10 +196,9 @@ class User {
 
   static async getUsersByUsername(username) {
     try {
-      const data = await query(
-        `SELECT * FROM users WHERE username = ?`,
-        [username]
-      );
+      const data = await query(`SELECT * FROM users WHERE username = ?`, [
+        username,
+      ]);
       return data;
     } catch (error) {
       throw error;

@@ -1,5 +1,3 @@
-const session = require("express-session");
-const { DateTime } = require("luxon");
 const { query, insert } = require("../config/database");
 
 class PostUserModel {

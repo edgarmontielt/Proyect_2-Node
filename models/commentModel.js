@@ -45,7 +45,7 @@ class Comment {
  
   static async getCommentsByPost(idpost){
     try {
-        const data = await query("SELECT * FROM comments WHERE idpost= ?", [idpost]);
+        const data = await query("SELECT comments.*,users.username,users.name,users.profile_pic FROM comments JOIN users ON comments.iduser=users.idUser and comments.idpost=? ORDER BY date desc", [idpost]);
         return data;
       } catch (error) {
         console.log(error);

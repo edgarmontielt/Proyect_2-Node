@@ -83,7 +83,12 @@
     </div> --}}
     <div class="w-full flex flex-col">
       {{#each posts}}
-        {{> post session=../session}} 
+        {{> post session=../session}}
+        {{#if (seeComments this.idPost ../idComments)}}
+          {{#each ../comments}}
+            {{>comment}}
+          {{/each}}
+        {{/if}}
       {{/each}}
     </div>
   </section>

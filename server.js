@@ -42,6 +42,9 @@ app.engine(
       },
       isOwner: function(username, owner){
         return username === owner;
+      },
+      seeComments: function(idPost,idSee){
+        return idPost == idSee;
       }
     },
   })

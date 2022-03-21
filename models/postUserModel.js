@@ -52,6 +52,12 @@ class PostUserModel {
             post.likedByUser = false;
         }
       });
+      for (const post of posts) {
+        const count = await query("SELECT COUNT(comment_text)as comment FROM comments WHERE idpost=?",[post.idPost]);
+       // console.log(count[0].comment);
+        post.comment = count[0].comment; 
+       // console.log(post.comment)
+      };
       //console.log(posts)
       return posts;
     } catch (error) {

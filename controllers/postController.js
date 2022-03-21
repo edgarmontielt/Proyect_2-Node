@@ -1,6 +1,8 @@
 const Post = require("../models/postModel");
 const PostUser = require("../models/postUserModel");
-const Like = require("../models/likeModel")
+const Like = require("../models/likeModel");
+const Comment = require("../models/commentModel");
+const User = require("../models/userModel");
 
 class PostController {
   async getAllPostsView(req, res) {
@@ -58,6 +60,26 @@ class PostController {
     const data = await Like.addLike(idPost,idUser);
     
     return res.redirect("/principal")
+  }
+
+  async getAllComments(req, res) {
+    const idPost = req.params.idPost;
+    const comentarios = await Comment.getCommentsByPost(idPost);
+    const data = await User.getUsersByUsername(req.body.username);
+
+    if (req.session.loggedIn){
+      const posts= await PostUser.getPostLikes(req.session.user.idUser);
+      return res.render("principal", {
+        user: data[0],
+        posts: posts,
+        hasUsers: data.length > 0 ? true : false,
+        idComments: idPost,
+        comments: comentarios,
+        hasComments: comentarios.length > 0,
+      });
+    } else {
+      return res.render("home")
+    }
   }
 }
 

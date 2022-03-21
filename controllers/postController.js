@@ -42,7 +42,6 @@ class PostController {
   async deletePost(req, res) {
     const id = req.body.idPost;
     const data = await Post.delete(id);
-    
     return res.redirect("/principal")
   }
 

@@ -4,10 +4,10 @@ const { query, insert } = require("../config/database");
 class Comment {
   idcomment;
 
-  constructor(idPost, idUser, comment) {
+  constructor(idPost, idUser, data) {
     this.iduser = idUser;
     this.idpost = idPost;
-    this.comment_text = comment;
+    this.comment_text = data.comment;
     this.date = DateTime.now();
   }
 

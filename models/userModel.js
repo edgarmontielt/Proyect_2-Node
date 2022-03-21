@@ -26,7 +26,7 @@ class User {
   static async readFilteredUsers(idUser) {
     try {
       const users = await query(
-        "SELECT * FROM users WHERE idUser != ? AND idUser NOT IN (SELECT users.idUser FROM users JOIN friendsrequests ON users.idUser = friendsrequests.idReceivedUser WHERE friendsrequests.idIssueUser = ?);",
+        "SELECT * FROM users WHERE idUser != ? AND idUser NOT IN (SELECT users.idUser FROM users JOIN friendsrequests ON users.idUser = friendsrequests.idIssueUser WHERE friendsrequests.idReceivedUser = ?)",
         [idUser, idUser]
       );
       const requestSend = await query(

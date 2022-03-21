@@ -35,7 +35,14 @@ class PostController {
   async newPost(req, res) {
     const idUser = req.params.idUser
     const newPost = new Post(req.body, idUser);
+    // console.log(req.body)
     const data = await newPost.addPost();
+    return res.redirect("/principal")
+  }
+
+  async newComment(req, res) {
+    const newComment = new Comment( req.params.idPost, req.session.user.idUser, req.body)
+    const data = await newComment.addComment()
     return res.redirect("/principal")
   }
 

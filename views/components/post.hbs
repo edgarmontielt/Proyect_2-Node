@@ -2,33 +2,38 @@
   <div class=" bg-white border px-4 py-3 rounded-lg w-2/3 h-auto shadow-md">
     <div class="flex items-center">
       <a href="/users/{{idUser}}" class="btn btn-primary btn-block">
-        <img class="h-12 w-12 rounded-full bg-cover hover:border-2 object-cover" src='{{this.profile_pic}}'/>
+        <img class="h-12 w-12 rounded-full bg-cover hover:border-2 object-cover" src='{{this.profile_pic}}' />
       </a>
 
       <div class="ml-2 w-full">
         <div class="text-sm flex justify-between">
           <div>
-              <span class="font-semibold">{{name}}</span>
-              <span class="text-gray-500 hover:text-east-side-700"><a href="/users/{{idUser}}" class="btn btn-primary btn-block">@{{username}}</a></span>   
+            <span class="font-semibold">{{name}}</span>
+            <span class="text-gray-500 hover:text-east-side-700"><a href="/users/{{idUser}}"
+                class="btn btn-primary btn-block">@{{username}}</a></span>
           </div>
-         {{#if (isOwner username session.user.username)}}
-            <form action="/post/delete" method="POST">
-              <input type="hidden" value="{{idPost}}" name="idPost">
-              <button class="w-5 h-5 font-bold"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                height="24" style="fill: rgb(43, 43, 43);transform: ;msFilter:;">
+          {{#if (isOwner username session.user.username)}}
+          <form action="/post/delete" method="POST">
+            <input type="hidden" value="{{idPost}}" name="idPost">
+            <button class="w-5 h-5 font-bold"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                style="fill: rgb(43, 43, 43);transform: ;msFilter:;">
                 <path
                   d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z">
                 </path>
               </svg></button>
-            </form>
-          
-         {{/if}}
+          </form>
+
+          {{/if}}
         </div>
         {{!-- <div class="text-gray-500 text-xs ">{{title}}</div> --}}
         <div class="text-gray-500 text-xs flex">
           <span class="inline-block">{{ formatDate date}} - {{formatHour date}} </span>
-          <svg class="inline-block ml-1 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
-            <path d="M8 1a7 7 0 107 7 7 7 0 00-7-7zM3 8a5 5 0 011-3l.55.55A1.5 1.5 0 015 6.62v1.07a.75.75 0 00.22.53l.56.56a.75.75 0 00.53.22H7v.69a.75.75 0 00.22.53l.56.56a.75.75 0 01.22.53V13a5 5 0 01-5-5zm6.24 4.83l2-2.46a.75.75 0 00.09-.8l-.58-1.16A.76.76 0 0010 8H7v-.19a.51.51 0 01.28-.45l.38-.19a.74.74 0 01.68 0L9 7.5l.38-.7a1 1 0 00.12-.48v-.85a.78.78 0 01.21-.53l1.07-1.09a5 5 0 01-1.54 9z"></path>
+          <svg class="inline-block ml-1 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
+            data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16"
+            focusable="false">
+            <path
+              d="M8 1a7 7 0 107 7 7 7 0 00-7-7zM3 8a5 5 0 011-3l.55.55A1.5 1.5 0 015 6.62v1.07a.75.75 0 00.22.53l.56.56a.75.75 0 00.53.22H7v.69a.75.75 0 00.22.53l.56.56a.75.75 0 01.22.53V13a5 5 0 01-5-5zm6.24 4.83l2-2.46a.75.75 0 00.09-.8l-.58-1.16A.76.76 0 0010 8H7v-.19a.51.51 0 01.28-.45l.38-.19a.74.74 0 01.68 0L9 7.5l.38-.7a1 1 0 00.12-.48v-.85a.78.78 0 01.21-.53l1.07-1.09a5 5 0 01-1.54 9z">
+            </path>
           </svg>
         </div>
       </div>
@@ -37,29 +42,68 @@
     <div class="text-gray-500 text-xs flex justify-between">
       <div class="flex items-center mt-3 gap-2">
         {{#if likedByUser}}
-          <form action="/post/unlike" method="POST">
-            <input type="hidden" value="{{idPost}}" name="idPost">
-            <input type="hidden" value="{{session.user.idUser}}" name="idUser">
-            <button class="btn__like ">
-              <svg width="22px" height="22px" viewBox="-1.35 0 1504.4 1504.4" id="Layer_1" xmlns="http://www.w3.org/2000/svg"><ellipse class="fill-violet-500 active:fill-violet-600" cx="750.8" cy="752.2" rx="750.8" ry="752.2"/><path class="fill-white" d="M378.3 667.5h165.1c13 0 23.6 10.5 23.6 23.6v379.1c0 13-10.5 23.6-23.6 23.6H378.3c-13 0-23.6-10.5-23.6-23.6V691c.1-13 10.6-23.5 23.6-23.5zM624.7 1004.7V733.1c.1-66.9 18.8-132.4 54.1-189.2 21.5-34.4 69.7-89.5 96.7-118 6-6.4 27.8-25.2 27.8-35.5 0-13.2 1.5-34.5 2-74.2.3-25.2 20.8-45.9 46-45.7h1.1c44.1.8 58.2 41.6 58.2 41.6s37.7 74.4 2.5 165.4c-29.7 76.9-35.8 83.1-35.8 83.1s-9.6 13.9 20.8 13.3c0 0 185.6-.8 192-.8 13.7 0 57.4 12.5 54.9 68.2-1.8 41.2-27.4 55.6-40.5 60.3-1.7.6-2.6 2.5-1.9 4.2.3.7.8 1.3 1.5 1.7 13.4 7.8 40.8 27.5 40.2 57.7-.8 36.6-15.5 50.1-46.1 58.5-1.7.4-2.8 2.2-2.3 3.9.2.9.8 1.6 1.5 2 11.6 6.6 31.5 22.7 30.3 55.3-1.2 33.2-25.2 44.9-38.3 48.9-1.7.5-2.7 2.3-2.2 4 .2.7.7 1.4 1.3 1.8 8.3 5.7 20.6 18.6 20 45.1-.3 14-5 24.2-10.9 31.5-9.3 11.5-23.9 17.5-38.7 17.6l-411.8.8c-.1-.1-22.4 0-22.4-29.9z"/></svg>
-            </button>
-          </form>
-
-        {{else}}
-        <form action="/post/like" method="POST">
-            <input type="hidden" value="{{idPost}}" name="idPost">
-            <input type="hidden" value="{{session.user.idUser}}" name="idUser">
-           <button  class="btn__like ">
-            <svg width="22px" height="22px" viewBox="-1.35 0 1504.4 1504.4" id="Layer_1" xmlns="http://www.w3.org/2000/svg"><ellipse class="fill-gray-400  active:fill-violet-600" cx="750.8" cy="752.2" rx="750.8" ry="752.2"/><path class="fill-white" d="M378.3 667.5h165.1c13 0 23.6 10.5 23.6 23.6v379.1c0 13-10.5 23.6-23.6 23.6H378.3c-13 0-23.6-10.5-23.6-23.6V691c.1-13 10.6-23.5 23.6-23.5zM624.7 1004.7V733.1c.1-66.9 18.8-132.4 54.1-189.2 21.5-34.4 69.7-89.5 96.7-118 6-6.4 27.8-25.2 27.8-35.5 0-13.2 1.5-34.5 2-74.2.3-25.2 20.8-45.9 46-45.7h1.1c44.1.8 58.2 41.6 58.2 41.6s37.7 74.4 2.5 165.4c-29.7 76.9-35.8 83.1-35.8 83.1s-9.6 13.9 20.8 13.3c0 0 185.6-.8 192-.8 13.7 0 57.4 12.5 54.9 68.2-1.8 41.2-27.4 55.6-40.5 60.3-1.7.6-2.6 2.5-1.9 4.2.3.7.8 1.3 1.5 1.7 13.4 7.8 40.8 27.5 40.2 57.7-.8 36.6-15.5 50.1-46.1 58.5-1.7.4-2.8 2.2-2.3 3.9.2.9.8 1.6 1.5 2 11.6 6.6 31.5 22.7 30.3 55.3-1.2 33.2-25.2 44.9-38.3 48.9-1.7.5-2.7 2.3-2.2 4 .2.7.7 1.4 1.3 1.8 8.3 5.7 20.6 18.6 20 45.1-.3 14-5 24.2-10.9 31.5-9.3 11.5-23.9 17.5-38.7 17.6l-411.8.8c-.1-.1-22.4 0-22.4-29.9z"/></svg>
+        <form action="/post/unlike" method="POST">
+          <input type="hidden" value="{{idPost}}" name="idPost">
+          <input type="hidden" value="{{session.user.idUser}}" name="idUser">
+          <button class="btn__like ">
+            <svg width="22px" height="22px" viewBox="-1.35 0 1504.4 1504.4" id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg">
+              <ellipse class="fill-violet-500 active:fill-violet-600" cx="750.8" cy="752.2" rx="750.8" ry="752.2" />
+              <path class="fill-white"
+                d="M378.3 667.5h165.1c13 0 23.6 10.5 23.6 23.6v379.1c0 13-10.5 23.6-23.6 23.6H378.3c-13 0-23.6-10.5-23.6-23.6V691c.1-13 10.6-23.5 23.6-23.5zM624.7 1004.7V733.1c.1-66.9 18.8-132.4 54.1-189.2 21.5-34.4 69.7-89.5 96.7-118 6-6.4 27.8-25.2 27.8-35.5 0-13.2 1.5-34.5 2-74.2.3-25.2 20.8-45.9 46-45.7h1.1c44.1.8 58.2 41.6 58.2 41.6s37.7 74.4 2.5 165.4c-29.7 76.9-35.8 83.1-35.8 83.1s-9.6 13.9 20.8 13.3c0 0 185.6-.8 192-.8 13.7 0 57.4 12.5 54.9 68.2-1.8 41.2-27.4 55.6-40.5 60.3-1.7.6-2.6 2.5-1.9 4.2.3.7.8 1.3 1.5 1.7 13.4 7.8 40.8 27.5 40.2 57.7-.8 36.6-15.5 50.1-46.1 58.5-1.7.4-2.8 2.2-2.3 3.9.2.9.8 1.6 1.5 2 11.6 6.6 31.5 22.7 30.3 55.3-1.2 33.2-25.2 44.9-38.3 48.9-1.7.5-2.7 2.3-2.2 4 .2.7.7 1.4 1.3 1.8 8.3 5.7 20.6 18.6 20 45.1-.3 14-5 24.2-10.9 31.5-9.3 11.5-23.9 17.5-38.7 17.6l-411.8.8c-.1-.1-22.4 0-22.4-29.9z" />
+            </svg>
           </button>
         </form>
 
-        {{/if}} 
-        <span class="ml-1">{{likes}} • {{comment}} 
+        {{else}}
+        <form action="/post/like" method="POST">
+          <input type="hidden" value="{{idPost}}" name="idPost">
+          <input type="hidden" value="{{session.user.idUser}}" name="idUser">
+          <button class="btn__like ">
+            <svg width="22px" height="22px" viewBox="-1.35 0 1504.4 1504.4" id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg">
+              <ellipse class="fill-gray-400  active:fill-violet-600" cx="750.8" cy="752.2" rx="750.8" ry="752.2" />
+              <path class="fill-white"
+                d="M378.3 667.5h165.1c13 0 23.6 10.5 23.6 23.6v379.1c0 13-10.5 23.6-23.6 23.6H378.3c-13 0-23.6-10.5-23.6-23.6V691c.1-13 10.6-23.5 23.6-23.5zM624.7 1004.7V733.1c.1-66.9 18.8-132.4 54.1-189.2 21.5-34.4 69.7-89.5 96.7-118 6-6.4 27.8-25.2 27.8-35.5 0-13.2 1.5-34.5 2-74.2.3-25.2 20.8-45.9 46-45.7h1.1c44.1.8 58.2 41.6 58.2 41.6s37.7 74.4 2.5 165.4c-29.7 76.9-35.8 83.1-35.8 83.1s-9.6 13.9 20.8 13.3c0 0 185.6-.8 192-.8 13.7 0 57.4 12.5 54.9 68.2-1.8 41.2-27.4 55.6-40.5 60.3-1.7.6-2.6 2.5-1.9 4.2.3.7.8 1.3 1.5 1.7 13.4 7.8 40.8 27.5 40.2 57.7-.8 36.6-15.5 50.1-46.1 58.5-1.7.4-2.8 2.2-2.3 3.9.2.9.8 1.6 1.5 2 11.6 6.6 31.5 22.7 30.3 55.3-1.2 33.2-25.2 44.9-38.3 48.9-1.7.5-2.7 2.3-2.2 4 .2.7.7 1.4 1.3 1.8 8.3 5.7 20.6 18.6 20 45.1-.3 14-5 24.2-10.9 31.5-9.3 11.5-23.9 17.5-38.7 17.6l-411.8.8c-.1-.1-22.4 0-22.4-29.9z" />
+            </svg>
+          </button>
+        </form>
+
+        {{/if}}
+        <span class="ml-1">{{likes}} • {{comment}}
           <a href="/post/comments/{{idPost}}" class="btn btn-primary btn-block hover:text-east-side-700">comments</a>
         </span>
       </div>
-      <button class="hover:text-east-side-700">Comentar</button>
     </div>
+    <div class=" w-full h-[1px] bg-stone-400 mt-2"></div>
+
+    <div class="mt-2">
+      <form action="/post/comments/{{idPost}}" method="post" class="flex flex-col">
+        <textarea name="comment" cols="30" rows="10" class=" rounded-md bg-slate-200 outline-none p-3 h-10 text-xs"></textarea>
+        <button class="w-24 ml-auto bg-violet-800 p-1 rounded-md font-medium hover:opacity-60 text-white mt-2 mb-5">Comentar</button>
+      </form>
+    </div>
+    <h1 class=" text-sm text-stone-700 font-medium">Comentarios</h1>
+    {{!-- <div>
+      {{#if (seeComments this.idPost ../idComments)}}
+      {{#each ../comments}}
+        <div class=" bg-white border px-4 py-3 rounded-lg w-1/3 h-auto shadow-md mx-auto">
+          <div class="flex flex-col items-start">
+            <div class="flex gap-2">
+              <a href="/users/{{iduser}}" class="btn btn-primary btn-block">
+                <img class="h-10 w-10 rounded-full bg-cover hover:border-2 object-cover" src='{{this.profile_pic}}' />
+              </a>
+              <span class="font-semibold">{{this.name}}</span>
+              <span class="text-gray-500 hover:text-east-side-700"><a href="/users/{{iduser}}"
+                  class="btn btn-primary btn-block">@{{username}}</a></span>
+              <p class="text-gray-600">{{formatDate this.date}}</p>
+            </div>
+
+            <p class="text-gray-600">{{this.comment_text}}</p>
+          </div>
+        </div>
+      {{/each}}
+      {{/if}} --}}
+    {{!-- </div> --}}
   </div>
 </div>

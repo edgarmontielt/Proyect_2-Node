@@ -15,4 +15,6 @@ router.post("/post/delete", postController.deletePost)
 router.post("/post/unlike", postController.unlikePost)
 router.post("/post/like", postController.addLikePost)
 
+router.get("/post/comments/:idPost", postController.getAllComments)
+
 module.exports = router

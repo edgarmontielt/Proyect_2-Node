@@ -45,9 +45,10 @@ class Comment {
  
   static async getCommentsByPost(idpost){
     try {
-        return await query("SELECT * FROM comments WHERE idpost= ?", [idpost]);
+        const data = await query("SELECT * FROM comments WHERE idpost= ?", [idpost]);
+        return data;
       } catch (error) {
-        throw error;
+        console.log(error);
       }
     }
 
